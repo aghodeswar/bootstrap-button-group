@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+  <style>
+  .label-text {
+  	cursor: default;
+  }
+  .title[data-title] {
+    position: relative;
+    
+  
+  	color: #636c72;
+    background-color: transparent;
+}
+
+.title[data-title]:hover::before {
+  content: attr(data-title);
+  position: absolute;
+  top: 20px;
+  left: 0;
+  display: inline-block;
+  padding: 3px 6px;
+  border-radius: 2px;
+  background: blue;
+  color: #fff;
+  font-size: 12px;
+  font-family: sans-serif;
+  white-space: nowrap;
+}
+  </style>
+</head>
+<body>
+
+<div class="container">
+  
+  <h2>Bootstrap Dropdown as Select</h2>
+  <div class="btn-group">
+    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Select a Country <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li class="dropdown-item label-text">Title 
+        <span class="title" data-title="Here is some text for example">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+        </span>
+    </li>
+      <li class="dropdown-item"><a href="#">Item I</a></li>
+      <li class="dropdown-item"><a href="#">Item II</a></li>
+      <li class="dropdown-item"><a href="#">Item III</a></li>
+      <li class="dropdown-item"><a href="#"><span class="badge badge-primary badge-pill float-right mt-1">new</span> Item IV</a></li>
+      <li class="dropdown-item"><a href="#">Item V</a></li>
+      <li class="dropdown-item"><a href="#">Other</a></li>
+    </ul>
+  </div>
+  
+</div>
+
+
+
+
+<script>
+$(".dropdown-menu li a").click(function(){
+  var selText = $(this).text();
+  $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+});
+</script>
+</body>
+</html>
